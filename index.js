@@ -15,7 +15,8 @@ class Message {
     if (typeof created === 'undefined' || Number.isNaN(created)) {
       throw new Error('Invalid created');
     }
-    if (Message.prototype.call(this, '_created')) {
+
+    if (Message.prototype.hasOwnProperty.call(this, '_created')) {
       throw new Error('Created already defined');
     }
     this._created = created;
